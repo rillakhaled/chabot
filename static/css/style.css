@@ -1,0 +1,75 @@
+body {
+  /*background: #fafafa;*/
+  background: #f7f7f5;
+  font-family: 'Roboto Mono', monospace;
+}
+
+main {
+  margin: 0 auto;
+  padding: 2.5em 0;
+  width: 90%;
+  max-width: 60rem;
+}
+
+.spacer{
+  height: 1.5em;
+  display: block;
+}
+
+textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: 0;
+  box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+  height: 150px;
+  background-color: white;
+  resize: vertical;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.message {
+  color: #383b3d;
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 2em
+}
+
+.message:nth-of-type(2n) {
+  text-align: left;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.message:nth-of-type(2) {
+}
+
+.message:nth-of-type(2n+1) {
+  text-align: right;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+button {
+  font-family: 'Roboto Mono', monospace;
+  color: grey;
+  padding: 0.5em 3em;
+  border: 0.16em solid #FFFFFF;
+  border-radius: 10px;
+  box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+  margin-top: 1em;
+  background: white;
+  transition: all 0.15s;
+  display: inline-block;
+}
+
+button:hover {
+  color: black;
+  border-color: white;
+  background-color: white;
+}
