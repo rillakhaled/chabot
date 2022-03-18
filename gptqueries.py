@@ -6,7 +6,7 @@ from random import choice
 load_dotenv()
 #openai.api_key = os.getenv('OPENAI_API_KEY')
 
-openai.api_key = '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'
+openai.api_key = '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'
 completion = openai.Completion()
 
 chat_log="""Helper is a therapist who employs cognitive behavioural therapy - or CBT - approaches.
