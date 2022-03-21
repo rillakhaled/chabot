@@ -67,13 +67,23 @@ def gpt3(prompt, engine='davinci', response_length=150,
     answer = response.choices[0]['text']
 
     # update what our chat_history says and return it to our session
-    global chat_log
-    chat_log = prompt + start_text + answer + restart_text
+    #global chat_log
+    #chat_log = prompt + start_text + answer + restart_text
+
     return answer
 
-def ask(question):
-    global chat_log
-    chat_log += question
 
-    answer = gpt3(chat_log,temperature=0.9,frequency_penalty=1,presence_penalty=1,start_text='\nHelper:',restart_text='\nPerson: ',stop_seq=['\nPerson:', '\n'])
+# need to work out when the equiv of this is happening
+def update_log(answer, chat_log=None):
+    if chat_log is None:
+        chat_log = session_prompt return f'{chat_log}{start_sequence} {answer}{restart_text}'
+
+def ask(question, log):
+    #global chat_log
+    #chat_log += question
+    #answer = gpt3(chat_log,temperature=0.9,frequency_penalty=1,presence_penalty=1,start_text='\nHelper:',restart_text='\nPerson: ',stop_seq=['\nPerson:', '\n'])
+
+    log += question;
+    answer = gpt3(log,temperature=0.9,frequency_penalty=1,presence_penalty=1,start_text='\nHelper:',restart_text='\nPerson: ',stop_seq=['\nPerson:', '\n'])
+
     return answer
