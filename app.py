@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, url_for, flash, redirect, session
-from gptqueries import ask
+from gptqueries import ask, update_log
 import sys
 import logging
 
