@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = 'helloeiwur92843uqghvnefjancwqefjfjewngvve'
 messages = []
 
 
-@app.route('/', methods=('GET', 'POST'))
+@app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         incoming_msg = request.form['content']
