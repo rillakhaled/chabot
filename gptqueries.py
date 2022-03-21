@@ -81,10 +81,13 @@ def update_log(answer, chat_log=None):
 
     return f'{chat_log}\nHelper: {answer}\nPerson: '
 
-def ask(question, log):
+def ask(question, log=None):
     #global chat_log
     #chat_log += question
     #answer = gpt3(chat_log,temperature=0.9,frequency_penalty=1,presence_penalty=1,start_text='\nHelper:',restart_text='\nPerson: ',stop_seq=['\nPerson:', '\n'])
+
+    if log is None:
+        log = initiate
 
     log += question;
     answer = gpt3(log,temperature=0.9,frequency_penalty=1,presence_penalty=1,start_text='\nHelper:',restart_text='\nPerson: ',stop_seq=['\nPerson:', '\n'])
