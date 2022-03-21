@@ -78,7 +78,7 @@ def update_log(answer, chat_log=None):
     if chat_log is None:
         global chat_log
 
-    chat_log = session_prompt return f'{chat_log}{start_sequence} {answer}{restart_text}'
+    chat_log = session_prompt return f'{chat_log}\nHelper: {answer}\nPerson: '
 
 def ask(question, log):
     #global chat_log
