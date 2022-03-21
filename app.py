@@ -6,11 +6,11 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'helloeiwur92843uqghvnefjancwqefjfjewngvve'
+app.config['SECRET_KEY'] = 'jknvdufihdvtubhewo87byuehjhesbkjvlsrjv'
 messages = []
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=('GET', 'POST'))
 def index():
     if request.method == 'POST':
         incoming_msg = request.form['content']
