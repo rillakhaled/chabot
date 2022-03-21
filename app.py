@@ -22,12 +22,14 @@ def index():
             # obtain chat_log
             chat_log = session.get('chat_log')
 
+            # add our new message to the message list
+            messages.insert(0, {'content': incoming_msg})
+
             # obtain a response, update our session's chat_log
             bot_answer = ask(incoming_msg, chat_log)
             session['chat_log'] = update_log(bot_answer, chat_log)
 
             # add our new message to the message list
-            messages.insert(0, {'content': incoming_msg})
             messages.insert(0, {'content': bot_answer})
 
             # refresh the page with our updated messages
