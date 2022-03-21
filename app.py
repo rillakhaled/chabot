@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_urlsafe(16)
 messages = []
 
-@app.route('/', methods=('POST'))
+@app.route('/', methods=['POST'])
 def index():
     # obtain chat_log
     chat_log = session.get('chat_log')
