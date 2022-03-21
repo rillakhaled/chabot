@@ -78,7 +78,7 @@ def update_log(question, answer, log=None):
     if log is None:
         log = initiate
 
-    return f'{log} {question}\nHelper:{answer}\nPerson: '
+    return f'{log}{question}\nHelper:{answer}\nPerson: '
 
 def ask(question, log=None):
 

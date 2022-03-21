@@ -31,7 +31,7 @@ def index():
             messages.insert(0, {'content': bot_answer})
 
             # refresh the page with our updated messages
-            # return redirect(url_for('index'))
+            return redirect(url_for('index'))
 
     return render_template('index.html', messages=messages)
 
