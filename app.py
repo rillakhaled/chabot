@@ -19,23 +19,20 @@ def index():
             flash('Content is required!')
         else:
 
-
             # obtain chat_log
             chat_log = session.get('chat_log')
 
+            # obtain a response, update our session's chat_log
+            bot_answer = ask(incoming_msg, chat_log)
+            session['chat_log'] = update_log(bot_answer, chat_log)
+
             # add our new message to the message list
             messages.insert(0, {'content': incoming_msg})
-
-            # call ask to get a response
-            bot_answer = ask(incoming_msg, chat_log)
             messages.insert(0, {'content': bot_answer})
-
-            # update our session's chat_log
-            session['chat_log'] = update_log(bot_answer, chat_log)
 
             # refresh the page with our updated messages
             return redirect(url_for('index'))
-            
+
     return render_template('index.html', messages=messages)
 
 if __name__ == "__main__":

@@ -76,7 +76,9 @@ def gpt3(prompt, engine='davinci', response_length=150,
 # need to work out when the equiv of this is happening
 def update_log(answer, chat_log=None):
     if chat_log is None:
-        chat_log = session_prompt return f'{chat_log}{start_sequence} {answer}{restart_text}'
+        global chat_log
+
+    chat_log = session_prompt return f'{chat_log}{start_sequence} {answer}{restart_text}'
 
 def ask(question, log):
     #global chat_log
