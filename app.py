@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'helloeiwur92843uqghvnefjancwqefjfjewngvve'
 messages = []
 
-@app.route('/', methods=('POST'))
+@app.route('/', methods=['POST'])
 def index():
     incoming_msg = request.form['content']
 
