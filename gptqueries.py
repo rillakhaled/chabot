@@ -7,7 +7,7 @@ load_dotenv()
 openai.api_key = os.getenv('OPENAI_API_KEY')
 completion = openai.Completion()
 
-chat_log="""Helper is a therapist who employs cognitive behavioural therapy - or CBT - approaches.
+initiate="""Helper is a therapist who employs cognitive behavioural therapy - or CBT - approaches.
 
 Helper is friendly, helpful, non-judgemental, and optimistic. Most of Helper's patients experience conditions
 like anxiety, depression, grief, and low self-esteem. Helper listens to the things people say, and asks whether
@@ -73,8 +73,11 @@ def gpt3(prompt, engine='davinci', response_length=150,
     return answer
 
 def update_log(answer, chat_log=None):
+
+    global initiate
+
     if chat_log is None:
-        global chat_log
+        chat_log = initiate
 
     return f'{chat_log}\nHelper: {answer}\nPerson: '
 
