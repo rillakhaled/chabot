@@ -73,7 +73,6 @@ def gpt3(prompt, engine='davinci', response_length=150,
     return answer
 
 def update_log(answer, chat_log=None):
-
     global initiate
 
     if chat_log is None:
@@ -82,6 +81,8 @@ def update_log(answer, chat_log=None):
     return f'{chat_log}\nHelper: {answer}\nPerson: '
 
 def ask(question, log=None):
+
+    global initiate
     #global chat_log
     #chat_log += question
     #answer = gpt3(chat_log,temperature=0.9,frequency_penalty=1,presence_penalty=1,start_text='\nHelper:',restart_text='\nPerson: ',stop_seq=['\nPerson:', '\n'])
