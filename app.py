@@ -15,19 +15,18 @@ def index():
     if request.method == 'POST':
         incoming_msg = request.form['content']
 
-        # add our new message to the message list
-        messages.insert(0, {'content': incoming_msg})        
-
         if not incoming_msg:
             flash('Content is required!')
         else:
+            # add our new message to the message list
+            messages.insert(0, {'content': incoming_msg})
 
             # obtain chat_log
             chat_log = session.get('chat_log')
 
             # obtain a response, update our session's chat_log
             bot_answer = ask(incoming_msg, chat_log)
-            session['chat_log'] = update_log(bot_answer, chat_log)
+            session['chat_log'] = update_log(incoming_msg, bot_answer, chat_log)
 
             # add our new message to the message list
             messages.insert(0, {'content': bot_answer})
