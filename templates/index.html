@@ -6,11 +6,14 @@
 
 {% for message in messages %}
   <div class='message'>
-    <p>{{ message['content'] }}</p>
+    {{ message['content'] }}
   </div>
 {% endfor %}
+
 <form method="post">
-    <textarea name="content" placeholder="say something to chatbot...">{{ request.form['content'] }}</textarea>
+    <textarea name="content" placeholder="say something to chatbot...">
+      {{ request.form['content'] }}
+    </textarea>
     <div class="buttonContainer">
       <button type="submit">say it</button>
     </div>

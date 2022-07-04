@@ -3,12 +3,13 @@ body {
   font-family: 'Roboto Mono', monospace;
 }
 
-main {
+.content {
   margin: 0 auto;
   padding: 2.5em 0;
   width: 90%;
   max-width: 60rem;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-end;
 }
@@ -24,7 +25,8 @@ textarea {
   width: 100%;
   padding: 15px;
   border-radius: 10px;
-  box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+  border: none;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.06);
   height: 150px;
   background-color: white;
   resize: vertical;
