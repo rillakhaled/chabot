@@ -3,7 +3,7 @@ body {
   font-family: 'Roboto Mono', monospace;
 }
 
-.content {
+.conversation {
   margin: 0 auto;
   padding: 2.5em 0;
   width: 90%;
@@ -23,7 +23,6 @@ textarea {
   display: block;
   /* box-sizing: border-box; */
   width: 100%;
-  padding: 15px;
   border-radius: 10px;
   border: none;
   box-shadow: 4px 4px 10px rgba(0,0,0,0.06);

@@ -11,10 +11,9 @@ messages = []
 def index():
 
     # obtain chat_log
-    chat_log = session.get('chat_log')
+    # chat_log = session.get('chat_log')
 
     if request.method == 'POST':
-
         incoming_msg = request.form['content']
 
         if not incoming_msg:

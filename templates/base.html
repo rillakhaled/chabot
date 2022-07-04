@@ -10,14 +10,14 @@
 </head>
 <body>
   <main>
-    <div class="content">
+    <div class="conversation">
       {% for message in get_flashed_messages() %}
         <div class="alert">{{ message }}</div>
       {% endfor %}
 
       {% block content %}
       {% endblock %}
-      
+
     </div>
   </main>
   <script src="../static/js/script.js"></script>
