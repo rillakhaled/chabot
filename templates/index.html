@@ -1,12 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="post">
-    <textarea name="content" placeholder="say something to chatbot...">{{ request.form['content'] }}</textarea>
-    <div class="buttonContainer">
-      <button type="submit">say it</button>
-    </div>
-</form>
 
 <div class="spacer"></div>
 
@@ -15,5 +9,11 @@
     <p>{{ message['content'] }}</p>
   </div>
 {% endfor %}
+<form method="post">
+    <textarea name="content" placeholder="say something to chatbot...">{{ request.form['content'] }}</textarea>
+    <div class="buttonContainer">
+      <button type="submit">say it</button>
+    </div>
+</form>
 
 {% endblock %}

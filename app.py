@@ -21,7 +21,9 @@ def index():
             flash('Content is required!')
         else:
             # add our new message to the message list
-            messages.insert(0, {'content': incoming_msg})
+            # messages.insert(0, {'content': incoming_msg})
+
+            messages.append({'content': incoming_msg})
 
             # obtain a response, update our session's chat_log
             bot_answer = ask(incoming_msg, chat_log)
