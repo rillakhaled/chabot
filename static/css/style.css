@@ -1,5 +1,4 @@
 body {
-  /*background: #fafafa;*/
   background: #f7f7f5;
   font-family: 'Roboto Mono', monospace;
 }
@@ -9,6 +8,9 @@ main {
   padding: 2.5em 0;
   width: 90%;
   max-width: 60rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .spacer{
@@ -18,11 +20,10 @@ main {
 
 textarea {
   display: block;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   width: 100%;
   padding: 15px;
   border-radius: 10px;
-  border: 0;
   box-shadow:4px 4px 10px rgba(0,0,0,0.06);
   height: 150px;
   background-color: white;
@@ -32,11 +33,12 @@ textarea {
 
 .message {
   color: #383b3d;
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 15px;
   font-size: 1em;
   line-height: 1.6;
-  padding: 15px;
-  margin: 15px;
-  border-radius: 10px;
 }
 
 .message:nth-of-type(2n) {
