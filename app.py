@@ -19,6 +19,7 @@ def index():
 
         if not incoming_msg:
             flash('Content is required!')
+
         else:
             # add our new message to the message list
             # messages.insert(0, {'content': incoming_msg})

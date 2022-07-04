@@ -50,7 +50,7 @@ Person: How long does it take for people to overcome grief?
 Helper: It really varies from person to person. Some people may start to feel better after a few weeks or months, while others may take longer. It is important to remember that there is no right or wrong way to grieve, and everyone experiences grief in their own way. There is no set timeline for healing.
 Person:"""
 
-def gpt3(prompt, engine='davinci', response_length=100,
+def gpt3(prompt, engine='davinci', response_length=50,
          temperature=0.7, top_p=1, frequency_penalty=0, presence_penalty=0,
          start_text='', restart_text='', stop_seq=[]):
 
@@ -78,19 +78,16 @@ def update_log(question, answer, log=None):
     if log is None:
         log = initiate
 
-    return f'{log}{question}\nHelper:{answer}\nPerson: '
+    return f'{log}\nPerson: {question}\nHelper: {answer}'
 
 def ask(question, log=None):
 
     global initiate
-    #global chat_log
-    #chat_log += question
-    #answer = gpt3(chat_log,temperature=0.9,frequency_penalty=1,presence_penalty=1,start_text='\nHelper:',restart_text='\nPerson: ',stop_seq=['\nPerson:', '\n'])
 
     if log is None:
         log = initiate
 
-    log += question;
+    log = log + '\nPerson: '+question;
     answer = gpt3(log,temperature=0.9,frequency_penalty=1,presence_penalty=1,start_text='\nHelper:',restart_text='\nPerson: ',stop_seq=['\nPerson:', '\n'])
 
     return answer
