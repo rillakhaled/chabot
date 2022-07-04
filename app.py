@@ -9,11 +9,14 @@ messages = []
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
+
     # obtain chat_log
     chat_log = session.get('chat_log')
 
     if request.method == 'POST':
+
         incoming_msg = request.form['content']
+
         if not incoming_msg:
             flash('Content is required!')
         else:
@@ -22,7 +25,7 @@ def index():
 
             # obtain a response, update our session's chat_log
             bot_answer = ask(incoming_msg, chat_log)
-            local['chat_log'] = update_log(incoming_msg, bot_answer, chat_log)
+            chat_log = update_log(incoming_msg, bot_answer, chat_log)
 
             # add our new message to the message list
             messages.insert(0, {'content': bot_answer})
