@@ -1,9 +1,11 @@
 console.clear();
-function typingEffect(element,speed){
-  let text=element.innerText;
+
+let typingEffect = function(element, speed){
+  let text = element.innerText;
   element.innerText="";
-  var i=0;
-  var timer=setInterval(function(){
+
+  let i = 0;
+  let timer =setInterval(function(){
     if(i<text.length){
       element.append(text.charAt(i))
       i++;
@@ -12,8 +14,7 @@ function typingEffect(element,speed){
       clearInterval(timer);
     }
   },speed)
-
 }
 
-const latest=document.querySelector('.message:nth-of-type(2)');
+const latest=document.querySelector('.message:last-of-type');
 typingEffect(latest,25);

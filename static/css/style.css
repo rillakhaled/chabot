@@ -34,21 +34,18 @@ textarea {
   color: #383b3d;
   font-size: 1em;
   line-height: 1.6;
-  margin: 2em
-  border: black 1px solid;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .message:nth-of-type(2n) {
-  text-align: left;
+  text-align: right;
   background-color: pink;
   font-family: 'Roboto Mono', monospace;
 }
 
-.message:nth-of-type(2) {
-}
-
 .message:nth-of-type(2n+1) {
-  text-align: right;
+  text-align: left;
   background-color: yellow;
   font-family: 'Roboto Mono', monospace;
 }
