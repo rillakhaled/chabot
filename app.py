@@ -30,7 +30,7 @@ def index():
             chat_log = update_log(incoming_msg, bot_answer, chat_log)
 
             # add our new message to the message list
-            messages.insert(0, {'content': bot_answer})
+            messages.append({'content': bot_answer})
 
             # refresh the page with our updated messages
             return redirect(url_for('index'))

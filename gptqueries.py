@@ -50,7 +50,7 @@ Person: How long does it take for people to overcome grief?
 Helper: It really varies from person to person. Some people may start to feel better after a few weeks or months, while others may take longer. It is important to remember that there is no right or wrong way to grieve, and everyone experiences grief in their own way. There is no set timeline for healing.
 Person:"""
 
-def gpt3(prompt, engine='davinci', response_length=150,
+def gpt3(prompt, engine='davinci', response_length=100,
          temperature=0.7, top_p=1, frequency_penalty=0, presence_penalty=0,
          start_text='', restart_text='', stop_seq=[]):
 
