@@ -31,19 +31,24 @@ def index():
 
             # obtain chat_log
             chat_log = session.get('chat_log')
-            session.pop('chat_log', None);
 
             # This allows us to write to the web log, which may help
-            if chat_log:
-                print("CHATLOG: "+chat_log)
-                sys.stdout.flush()
-            else:
-                print("CHATLOG IS EMPTY")
-                sys.stdout.flush()
+            # if chat_log:
+            #     print("CHATLOG: "+chat_log)
+            #     sys.stdout.flush()
+            # else:
+            #     print("CHATLOG IS EMPTY")
+            #     sys.stdout.flush()
 
             # obtain a response, update our session's chat_log
             bot_answer = ask(incoming_msg, chat_log)
+
+            session.pop('chat_log', None)
             session['chat_log'] = update_log(incoming_msg, bot_answer, chat_log)
+
+            print("CHATLOG SAYS "+chat_log)
+            sys.stdout.flush()
+
 
             # add our new message to the message list
             messages.append({'content': bot_answer})
