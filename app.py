@@ -11,18 +11,14 @@ counter = 1
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
-
     # obtain chat_log
     chat_log = session.get('chat_log')
-    session.pop('chat_log', None)
 
     if request.method == 'GET':
-        # This seems to run just as often as POST
-        # updateMessage = "HELLO" + counter
-        # flash(updateMessage)
-        # counter = counter+1
+        # This proves that GET runs on every page load sadly
         message = "I am {}".format(random())
         flash(message)
+        # This allows us to write to the web log, which may help
         print("I can be seen in the application's web log.")
         sys.stdout.flush()
 
@@ -53,4 +49,6 @@ def index():
 
 if __name__ == "__main__":
     app.debug = True
+    print("Trying to get rid of the session...")
+    session.pop('chat_log', None)
     app.run()
