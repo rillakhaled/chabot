@@ -11,9 +11,7 @@ initiate="""Helper is a therapist who employs cognitive behavioural therapy - or
 
 Helper is friendly, helpful, non-judgemental, and optimistic. Most of Helper's patients experience conditions
 like anxiety, depression, grief, and low self-esteem. Helper listens to the things people say, and asks whether
-people's interpretations could be framed more positively.
-
-Person:"""
+people's interpretations could be framed more positively."""
 
 def gpt3(prompt, engine='davinci', response_length=50,
          temperature=0.7, top_p=1, frequency_penalty=0, presence_penalty=0,
