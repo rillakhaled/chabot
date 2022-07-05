@@ -27,13 +27,12 @@ def index():
 
             # obtain a response, update our session's chat_log
             bot_answer = ask(incoming_msg, chat_log)
-            chat_log = update_log(incoming_msg, bot_answer, chat_log)
+            session['chat_log'] = update_log(incoming_msg, bot_answer, chat_log)
 
             # add our new message to the message list
             messages.append({'content': bot_answer})
 
             # refresh the page with our updated messages
-            session['chat_log'] = chat_log
             return redirect(url_for('index'))
 
     return render_template('index.html', messages=messages)
