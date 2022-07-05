@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, flash, redirect, session
 from gptqueries import ask, update_log
+from random import random
 import sys
 import secrets
 
@@ -19,7 +20,7 @@ def index():
         # updateMessage = "HELLO" + counter
         # flash(updateMessage)
         # counter = counter+1
-        message = "I am {}".format(3)
+        message = "I am {}".format(random())
         flash(message)
         print("hei")
         sys.stdout.flush()
