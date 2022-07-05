@@ -23,11 +23,8 @@ def index():
         # counter = counter+1
         message = "I am {}".format(random())
         flash(message)
-        print("hei")
+        print("I can be seen in the application's web log.")
         sys.stdout.flush()
-
-        # Trying gunicorn
-        app.logger.debug('this is a DEBUG message')
 
 
     if request.method == 'POST':
@@ -56,7 +53,4 @@ def index():
 
 if __name__ == "__main__":
     app.debug = True
-    gunicorn_logger = logging.getLogger('gunicorn.error')
-    app.logger.handlers = gunicorn_logger.handlers
-    app.logger.setLevel(gunicorn_logger.level)
     app.run()
