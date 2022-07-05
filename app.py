@@ -9,18 +9,10 @@ app.config['SECRET_KEY'] = secrets.token_urlsafe(16)
 messages = []
 print("Clearing the session...")
 sys.stdout.flush();
-# session.pop('chat_log', None)
+chat_log = ''
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
-    # obtain chat_log
-    chat_log = session.get('chat_log')
-    session.pop('chat_log', None);
-
-    # This allows us to write to the web log, which may help
-    print("CHATLOG: "+chat_log)
-    sys.stdout.flush()
-
     # if request.method == 'GET':
         # This proves that GET runs on every page load sadly
         # message = "I am {}".format(random())
@@ -37,6 +29,14 @@ def index():
         else:
             # add our new message to the message list
             messages.append({'content': incoming_msg})
+
+            # obtain chat_log
+            chat_log = session.get('chat_log')
+            session.pop('chat_log', None);
+
+            # This allows us to write to the web log, which may help
+            print("CHATLOG: "+chat_log)
+            sys.stdout.flush()
 
             # obtain a response, update our session's chat_log
             bot_answer = ask(incoming_msg, chat_log)
