@@ -37,14 +37,6 @@ def gpt3(prompt, engine='davinci', response_length=50,
 
     return answer
 
-def update_log(question, answer, log=None):
-    global initiate
-
-    if log is None:
-        log = initiate
-
-    return f'{log}{question}\nHelper:{answer}\nPerson:'
-
 def ask(question, log=None):
     global initiate
 
@@ -53,5 +45,12 @@ def ask(question, log=None):
 
     log += question
     answer = gpt3(log,temperature=0.9,frequency_penalty=1,presence_penalty=1,start_text='\nHelper:',restart_text='\nPerson: ',stop_seq=['\nPerson:', '\n'])
-
     return answer
+
+def update_log(question, answer, log=None):
+    global initiate
+
+    if log is None:
+        log = initiate
+
+    return f'{log}{question}\nHelper:{answer}\nPerson:'
