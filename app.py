@@ -19,7 +19,8 @@ def index():
         # updateMessage = "HELLO" + counter
         # flash(updateMessage)
         # counter = counter+1
-        flash('here is a string')
+        message = "I am {}".format(3)
+        flash(message)
         print("hei")
         sys.stdout.flush()
 
@@ -49,4 +50,5 @@ def index():
     return render_template('index.html', messages=messages)
 
 if __name__ == "__main__":
+    app.debug = True
     app.run()
