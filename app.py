@@ -13,6 +13,8 @@ def index():
     # obtain chat_log
     if 'chat_log' in session:
         chat_log = session.get('chat_log')
+    else:
+        chat_log is None
 
     if request.method == 'POST':
         incoming_msg = request.form['content']
