@@ -41,7 +41,7 @@ def update_log(question, answer, log=None):
     if log is None:
         log = initiate
 
-    return f'{log}\nPerson:{question}\nHelper:{answer}'
+    return f'{log}{question}\nHelper:{answer}\nPerson:'
 
 def ask(question, log=None):
     global initiate
@@ -49,9 +49,7 @@ def ask(question, log=None):
     if log is None:
         log = initiate
 
-    # print("IN ASK")
-    # sys.stdout.flush()
-    log = log + '\nPerson:'+question
-    answer = gpt3(log,temperature=0.9,frequency_penalty=1,presence_penalty=1,start_text='\nHelper:',restart_text='\nPerson:',stop_seq=['\nPerson:', '\n'])
+    log += question
+    answer = gpt3(log,temperature=0.9,frequency_penalty=1,presence_penalty=1,start_text='\nHelper:',restart_text='\nPerson: ',stop_seq=['\nPerson:', '\n'])
 
     return answer
