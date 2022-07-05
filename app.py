@@ -21,6 +21,7 @@ def index():
         incoming_msg = request.form['content']
         print("INCOMING MSG:" + incoming_msg)
         sys.stdout.flush();
+        session.permanent = True
 
         if not incoming_msg:
             flash('Content is required!')
