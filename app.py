@@ -6,6 +6,7 @@ import secrets
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_urlsafe(16)
 messages = []
+counter = 1
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
@@ -15,7 +16,8 @@ def index():
     session.pop('chat_log', None)
 
     if request.method == 'GET':
-        flash('STUFF')
+        flash(counter)
+        counter++
 
 
     if request.method == 'POST':
