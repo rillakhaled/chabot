@@ -81,7 +81,6 @@ def update_log(question, answer, log=None):
     return f'{log}\nPerson: {question}\nHelper: {answer}'
 
 def ask(question, log=None):
-
     global initiate
 
     if log is None:
