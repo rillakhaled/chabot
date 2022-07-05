@@ -14,22 +14,24 @@ sys.stdout.flush();
 @app.route('/', methods=('GET', 'POST'))
 def index():
     # obtain chat_log
-    chat_log = session.get('chat_log')
-    print(chat_log)
+    if 'chat_log' in session:
+        chat_log = session.get('chat_log')
+        session.pop('chat_log', None);
+    else:
+        chat_log = None
+
+    # This allows us to write to the web log, which may help
+    print("CHATLOG: "+chat_log)
     sys.stdout.flush()
 
-    if request.method == 'GET':
+    # if request.method == 'GET':
         # This proves that GET runs on every page load sadly
-        message = "I am {}".format(random())
-        flash(message)
-        # This allows us to write to the web log, which may help
-        print("I can be seen in the application's web log.")
-        sys.stdout.flush()
-
+        # message = "I am {}".format(random())
+        # flash(message)
 
     if request.method == 'POST':
         incoming_msg = request.form['content']
-        print(incoming_msg)
+        print("INCOMING MSG:" + incoming_msg)
         sys.stdout.flush();
 
         if not incoming_msg:
@@ -37,8 +39,6 @@ def index():
 
         else:
             # add our new message to the message list
-            # messages.insert(0, {'content': incoming_msg})
-
             messages.append({'content': incoming_msg})
 
             # obtain a response, update our session's chat_log
