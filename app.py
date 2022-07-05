@@ -7,7 +7,7 @@ import secrets
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_urlsafe(16)
 messages = []
-counter = 1
+session.clear()
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
@@ -49,6 +49,4 @@ def index():
 
 if __name__ == "__main__":
     app.debug = True
-    print("Trying to get rid of the session...")
-    session.pop('chat_log', None)
     app.run()
