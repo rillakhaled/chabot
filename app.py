@@ -9,7 +9,7 @@ app.config['SECRET_KEY'] = secrets.token_urlsafe(16)
 messages = []
 print("Clearing the session...")
 sys.stdout.flush();
-session.pop('chat_log', None)
+# session.pop('chat_log', None)
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
