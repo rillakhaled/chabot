@@ -14,11 +14,8 @@ sys.stdout.flush();
 @app.route('/', methods=('GET', 'POST'))
 def index():
     # obtain chat_log
-    if 'chat_log' in session:
-        chat_log = session.get('chat_log')
-        session.pop('chat_log', None);
-    else:
-        chat_log = None
+    chat_log = session.get('chat_log')
+    session.pop('chat_log', None);
 
     # This allows us to write to the web log, which may help
     print("CHATLOG: "+chat_log)
