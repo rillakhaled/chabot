@@ -16,8 +16,11 @@ def index():
     session.pop('chat_log', None)
 
     if request.method == 'GET':
-        flash(counter)
+        updateMessage = "HELLO" + counter
+        flash(updateMessage)
         counter = counter+1
+        print(updateMessage)
+        sys.stdout.flush()
 
 
     if request.method == 'POST':
