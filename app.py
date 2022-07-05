@@ -17,6 +17,7 @@ def index():
     session.pop('chat_log', None)
 
     if request.method == 'GET':
+        # This seems to run just as often as POST
         # updateMessage = "HELLO" + counter
         # flash(updateMessage)
         # counter = counter+1
@@ -24,6 +25,9 @@ def index():
         flash(message)
         print("hei")
         sys.stdout.flush()
+
+        # Trying gunicorn
+        app.logger.debug('this is a DEBUG message')
 
 
     if request.method == 'POST':
@@ -52,4 +56,7 @@ def index():
 
 if __name__ == "__main__":
     app.debug = True
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    app.logger.handlers = gunicorn_logger.handlers
+    app.logger.setLevel(gunicorn_logger.level)
     app.run()
