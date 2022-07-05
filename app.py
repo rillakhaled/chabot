@@ -29,7 +29,7 @@ def index():
 
     if request.method == 'POST':
         incoming_msg = request.form['content']
-        print(incoming_message)
+        print(incoming_msg)
         sys.stdout.flush();
 
         if not incoming_msg:
