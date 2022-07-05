@@ -7,13 +7,16 @@ import secrets
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_urlsafe(16)
 messages = []
-print("When does this show up?")
+print("Clearing the session...")
 sys.stdout.flush();
+session.pop('chat_log', None)
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
     # obtain chat_log
     chat_log = session.get('chat_log')
+    print(chat_log)
+    sys.stdout.flush()
 
     if request.method == 'GET':
         # This proves that GET runs on every page load sadly
@@ -26,6 +29,8 @@ def index():
 
     if request.method == 'POST':
         incoming_msg = request.form['content']
+        print(incoming_message)
+        sys.stdout.flush();
 
         if not incoming_msg:
             flash('Content is required!')
