@@ -51,8 +51,8 @@ def ask(question, log=None):
     if log is None:
         log = initiate
 
-    print("IN ASK")
-    sys.stdout.flush()
+    # print("IN ASK")
+    # sys.stdout.flush()
     log = log + '\nPerson: '+question
     answer = gpt3(log,temperature=0.9,frequency_penalty=1,presence_penalty=1,start_text='\nHelper:',restart_text='\nPerson: ',stop_seq=['\nPerson:', '\n'])
 
