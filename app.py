@@ -7,7 +7,8 @@ import secrets
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_urlsafe(16)
 messages = []
-session.clear()
+print("When does this show up?")
+sys.stdout.flush();
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
