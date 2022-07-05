@@ -34,8 +34,11 @@ def index():
             session.pop('chat_log', None);
 
             # This allows us to write to the web log, which may help
-            print("CHATLOG: "+chat_log)
-            sys.stdout.flush()
+            if chat_log:
+                print("CHATLOG: "+chat_log)
+                sys.stdout.flush()
+            else:
+                print("CHATLOG IS EMPTY")
 
             # obtain a response, update our session's chat_log
             bot_answer = ask(incoming_msg, chat_log)
