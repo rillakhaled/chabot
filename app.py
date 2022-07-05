@@ -17,7 +17,7 @@ def index():
 
     if request.method == 'GET':
         flash(counter)
-        counter++
+        counter = counter+1
 
 
     if request.method == 'POST':
