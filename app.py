@@ -7,9 +7,8 @@ import secrets
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_urlsafe(16)
 messages = []
-print("Clearing the session...")
-sys.stdout.flush();
-chat_log = ''
+# print("Clearing the session...")
+# sys.stdout.flush();
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
