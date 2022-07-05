@@ -14,6 +14,10 @@ def index():
     chat_log = session.get('chat_log')
     session.pop('chat_log', None)
 
+    if request.method == 'GET':
+        flash('STUFF')
+
+
     if request.method == 'POST':
         incoming_msg = request.form['content']
 
@@ -40,4 +44,3 @@ def index():
 
 if __name__ == "__main__":
     app.run()
-    session.pop('chat_log', None)

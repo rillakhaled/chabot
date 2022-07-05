@@ -17,4 +17,4 @@ let typingEffect = function(element, speed){
 }
 
 const latest=document.querySelector('.message:last-of-type');
-typingEffect(latest,25);
+// typingEffect(latest,25);
