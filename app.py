@@ -33,6 +33,7 @@ def index():
             messages.append({'content': bot_answer})
 
             # refresh the page with our updated messages
+            session['chat_log'] = chat_log
             return redirect(url_for('index'))
 
     return render_template('index.html', messages=messages)

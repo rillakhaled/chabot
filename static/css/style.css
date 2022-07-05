@@ -29,6 +29,7 @@ textarea {
   height: 150px;
   background-color: white;
   resize: vertical;
+  font-size: 1em;
   font-family: 'Roboto Mono', monospace;
 }
 
