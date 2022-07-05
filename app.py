@@ -45,6 +45,7 @@ def index():
             # session.pop('chat_log', None)
 
             session['chat_log'] = update_log(incoming_msg, bot_answer, chat_log)
+            session.modified = True
             print("CHATLOG SAYS "+session['chat_log'])
             sys.stdout.flush()
 
