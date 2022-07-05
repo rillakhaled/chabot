@@ -39,6 +39,7 @@ def index():
                 sys.stdout.flush()
             else:
                 print("CHATLOG IS EMPTY")
+                sys.stdout.flush()
 
             # obtain a response, update our session's chat_log
             bot_answer = ask(incoming_msg, chat_log)
